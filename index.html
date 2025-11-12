@@ -1,83 +1,37 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <title>My First Website</title>
+  <meta charset="UTF-8">
+  <title>숫자 맞추기 게임</title>
+  <style>
+    body { font-family: sans-serif; text-align: center; margin-top: 50px; }
+    input, button { font-size: 1.1em; }
+  </style>
 </head>
 <body>
-  <h1>Hello World!</h1>
-  <p>첫 웹페이지를 만들었습니다 🎉</p>
-  <p>줄바꾸기를 배워볼거에요<br>됬을까요?</p>
-  <h1>판매 중인 과일</h1>
-<ul>
-  <li>바나나</li>
-  <li>사과</li>
-  <li>수박</li>
-</ul>
-<dl>
-  <dt>HTML</dt>
-  <dd>HTML은 Hyper Text Markup Language의 약자로 웹 문서의 구조를 설계하기 위한 목적으로 개발된 언어입니다.</dd>
-  <dt>CSS</dt>
-  <dd>CSS는 Cascading Style Sheets의 약자로 웹 문서를 꾸미기 위한 목적으로 개발된 언어입니다.</dd>
-</dl>
-<a href="https://alwayslearningyeah.github.io/html-practice/" target="_blank" title="링크 연습">연습 링크</a>
-<p><strong>시설 이용자는 <strong>아래에 안내되어 있는 수칙</strong>을 반드시 지켜야 합니다.</strong></p>
-<input type="text">
-<input type="password">
-<input type="tel">
-<input type="number">
-<input type="url">
-<input type="search">
-<input type="email">
-<input type="checkbox">
-<input type="radio">
-<input type="file">
-<input type="button">
-<input type="image" src="facebook.png">
-<input type="hidden">
-<input type="date">
-<input type="datetime-local">
-<input type="month">
-<input type="week">
-<input type="time">
-<input type="range">
-<input type="color">
-<input type="submit">
-<input type="reset">
-<label>
-  아이디
-  <input type="text">
-</label>
-<form>
-  <fieldset>
-    <legend>기본 정보</legend> 
-    <p>
-      <label for="userid">아이디</label>
-      <input type="text" id="userid">
-    </p>
-    <p>
-      <label for="passwd">비밀번호</label>
-      <input type="password" id="passwd">
-    </p>
-  </fieldset>
-  <fieldset>
-    <legend>선택 정보</legend>
-    <p>
-      <label for="age">나이</label>
-      <input type="number" id="age">
-    </p>
-    <p>
-      <label for="recommender">추천인</label>
-      <input type="text" id="recommender">
-    </p>
-  </fieldset>
-</form>
-<select name="city" id="city">
-  <option value="강북구">강북구</option>
-  <option value="강남구">강남구</option>
-  <option value="서초구">서초구</option>
-  <option value="중원구">중원구</option>
-  <option value="분당구">분당구</option>
-</select>
+  <h2>숫자 맞추기 게임</h2>
+  <p>1부터 100 사이의 숫자를 맞춰보세요!</p>
+  <input type="number" id="guess" min="1" max="100" placeholder="숫자를 입력하세요">
+  <button onclick="checkGuess()">확인</button>
+  <p id="result"></p>
+  <script>
+    const answer = Math.floor(Math.random() * 100) + 1;
+    let count = 0;
+    function checkGuess() {
+      const guess = parseInt(document.getElementById('guess').value, 10);
+      count++;
+      let result = '';
+      if (isNaN(guess) || guess < 1 || guess > 100) {
+        result = '1부터 100 사이의 숫자를 입력하세요.';
+      } else if (guess < answer) {
+        result = '더 큰 숫자입니다.';
+      } else if (guess > answer) {
+        result = '더 작은 숫자입니다.';
+      } else {
+        result = `정답! ${count}번 만에 맞췄어요.`;
+      }
+      document.getElementById('result').textContent = result;
+    }
+  </script>
 </body>
 </html>
