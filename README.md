@@ -1,2 +1,2 @@
-# Study & Memo
+# Memo
 Happy learning
