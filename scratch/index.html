@@ -13,22 +13,24 @@
                 <a href="https://www.naver.com" target="_blank" title="네이버" rel="noopener norefferer">네이버</a>
 
             <h3>폼</h3>
-            <form action=# method="post">
+            <form action="#" method="post">
                 <fieldset>
                     <legend>로그인 정보 입력</legend>
-                    <label for="id">아이디</label>
-                    <input type="text" id="id" name="id">
-
-                    <label for="pw">비밀번호</label>
-                    <input type="pw" id="pw" name="pw">
-
+                    <div class="field">
+                        <label for="id">아이디</label>
+                        <input type="text" id="id" name="id" placeholder="아이디">
+                    </div>
+                    <div class="field">
+                        <label for="pw">비밀번호</label>
+                        <input type="password" id="pw" name="pw" placeholder="비밀번호">
+                    </div>
                     <button type="submit">로그인</button>
                 </fieldset>
             </form>
 
             <h3>input과 textarea의 차이</h3>
                 <input type="text" placeholder="초기값">
-                <textarea placehoder="초기값"></textarea>
+                <textarea placeholder="초기값">뭘넣으면</textarea>
 
             </body>
 </html>
